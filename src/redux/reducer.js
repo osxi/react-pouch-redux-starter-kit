@@ -11,6 +11,13 @@ export default (state=initialState, action) => {
       ...state,
       greeting: action.greeting
     };
+  case 'FETCH_PEOPLE':
+    return {
+      ...state,
+      people: action.people
+    };
+  case 'RECEIVE_PERSON':
+    return state;
   default:
     return state;
   }

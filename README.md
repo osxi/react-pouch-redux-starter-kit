@@ -13,4 +13,4 @@ Visit http://localhost:8080/
 ### TODO
 
   - Material UI
-  - PouchDB
+  - PouchDB CRUD demo
