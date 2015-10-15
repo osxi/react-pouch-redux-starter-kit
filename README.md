@@ -12,5 +12,4 @@ Visit http://localhost:8080/
 
 ### TODO
 
-  - Material UI
-  - PouchDB CRUD demo
+  - PouchDB CRUD demo that is easy to understand/remove for quickly orienting oneself with this stack
