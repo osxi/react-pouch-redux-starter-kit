@@ -2,7 +2,7 @@
 
 import store from './store';
 import PouchDB from 'pouchdb';
-import { receivePerson } from './actions';
+import { fetchPeople, receivePerson, upsertPerson } from './actions';
 
 let db = new PouchDB('app');
 
@@ -14,15 +14,15 @@ db.changes({
   .on('error', console.log.bind(console));
 
 function changeCallback(change) {
-  // TODO: dispatch with new data
+  store.dispatch(fetchPeople());
 
-  // let { id } = change;
+  // TODO: add/remove specific docs instead of fetching allDocs
 
-  // db.get(id).then(newPerson => {
-  //   store.dispatch(receivePerson(newPerson));
-  // });
-
-  store.dispatch(receivePerson());
+  // if (change.deleted) {
+  //   store.dispatch(deletePerson(change.id))
+  // } else {
+  //   store.dispatch(upsertPerson(change.doc));
+  // }
 }
 
 export default db;

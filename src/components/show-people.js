@@ -17,7 +17,7 @@ export default React.createClass({
     let { people } = this.props;
 
     return (
-      <p>
+      <span>
         <RaisedButton label="Show People" primary={true}
                       onClick={this._showPeople} />
 
@@ -25,7 +25,7 @@ export default React.createClass({
                 autoDetectWindowHeight={true} autoScrollBodyContent={true}>
           <div><pre>{JSON.stringify(people, null, 2)}</pre></div>
         </Dialog>
-      </p>
+      </span>
     );
   }
 });

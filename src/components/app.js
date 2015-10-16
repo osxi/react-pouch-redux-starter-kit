@@ -3,6 +3,7 @@
 import css from '../styles/app';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import store from '../redux/store';
+import DeletePeople from './delete-people';
 import MUI from 'material-ui';
 import NavBar from './nav-bar';
 import React from 'react';
@@ -51,6 +52,8 @@ let App = React.createClass({
           <h1>{greeting}</h1>
 
           <ShowPeople people={people} />
+
+          <DeletePeople />
 
           <div>
             {this.props.children}

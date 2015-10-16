@@ -16,7 +16,11 @@ export default (state=initialState, action) => {
       ...state,
       people: action.people
     };
-  case 'RECEIVE_PERSON':
+  case 'DELETE_PERSON':
+    return state;
+  case 'DELETE_PEOPLE':
+    return state;
+  case 'UPSERT_PERSON':
     return state;
   default:
     return state;
