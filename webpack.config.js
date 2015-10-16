@@ -22,8 +22,5 @@ module.exports = {
         loaders: ['react-hot', 'babel-loader']
       }
     ]
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ]
+  }
 };

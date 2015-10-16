@@ -1,30 +1,39 @@
 'use strict';
 
 import css from '../styles/app';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import store from '../redux/store';
 import MUI from 'material-ui';
+import NavBar from './nav-bar';
 import React from 'react';
+import ShowPeople from './show-people';
 import { connect } from 'react-redux';
 import { fetchPeople } from '../redux/actions';
-import { Link } from 'react-router';
 
 const {
   Card,
-  RaisedButton,
   Styles
 } = MUI;
 
 const { ThemeManager } = Styles;
 
+const { createFragment } = React.addons;
+
+injectTapEventPlugin();
+
 let App = React.createClass({
   childContextTypes: {
-    muiTheme: React.PropTypes.object,
+    muiTheme: React.PropTypes.object
   },
 
   getChildContext() {
     return {
-      muiTheme: ThemeManager.getMuiTheme(Styles.LightRawTheme),
+      muiTheme: ThemeManager.getMuiTheme(Styles.LightRawTheme)
     };
+  },
+
+  contextTypes: {
+    router: React.PropTypes.func
   },
 
   componentDidMount() {
@@ -32,28 +41,22 @@ let App = React.createClass({
   },
 
   render() {
-    let { greeting } = this.props;
+    let { greeting, people, history } = this.props;
 
     return (
-      <Card style={css.appCard}>
-        <h1>App</h1>
+      <div>
+        <NavBar history={history} />
 
-        <p>{greeting}</p>
+        <Card style={css.appCard}>
+          <h1>{greeting}</h1>
 
-        <p>
-          People: {JSON.stringify(this.props.people || {})}
-        </p>
+          <ShowPeople people={people} />
 
-        <ul>
-          <li><Link to="/">Index</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/new-person">New Person</Link></li>
-        </ul>
-
-        <div>
-          {this.props.children}
-        </div>
-      </Card>
+          <div>
+            {this.props.children}
+          </div>
+        </Card>
+      </div>
     );
   }
 });

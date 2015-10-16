@@ -12,8 +12,8 @@ export default React.createClass({
   render() {
     return (
       <Router>
-        <Route path="/" component={App}>
-          <IndexRoute component={Index} />
+        <Route name="root" path="/" component={App}>
+          <IndexRoute name="index" component={Index} />
           <Route name="about" path="about" component={About}/>
           <Route name="new-person" path="new-person" component={NewPerson}/>
           <Route path="*" component={NoMatch}/>
