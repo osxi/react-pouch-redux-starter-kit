@@ -1,7 +1,12 @@
 var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: [
+  'webpack-dev-server/client?http://localhost:8080',
+  'webpack/hot/only-dev-server',
+  './src/index.js'
+  ],
   output: {
     path: __dirname,
     filename: "bundle.js"
@@ -14,8 +19,11 @@ module.exports = {
       },
       {
         test: path.join(__dirname, 'src'),
-        loader: 'babel-loader'
+        loaders: ['react-hot', 'babel-loader']
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ]
 };
