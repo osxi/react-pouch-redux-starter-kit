@@ -31,20 +31,16 @@ let App = React.createClass({
     };
   },
 
-  contextTypes: {
-    router: React.PropTypes.func
-  },
-
   componentDidMount() {
     store.dispatch(fetchPeople());
   },
 
   render() {
-    let { greeting, people, history } = this.props;
+    let { greeting, people, history, location } = this.props;
 
     return (
       <div>
-        <NavBar history={history} />
+        <NavBar history={history} pathname={location.pathname} />
 
         <Card style={css.appCard}>
           <h1>{greeting}</h1>
