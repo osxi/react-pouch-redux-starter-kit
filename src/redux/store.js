@@ -1,10 +1,13 @@
 'use strict';
 
 import { createStore, applyMiddleware } from 'redux';
-import { logger } from './middleware';
-import promiseMiddleware from 'redux-promise';
+import promise from 'redux-promise';
 import reducer from './reducer';
+import reduxLogger from 'redux-logger';
+import thunk from 'redux-thunk';
 
-let createStoreWithMiddleware = applyMiddleware(logger, promiseMiddleware)(createStore);
+const logger = reduxLogger();
+
+let createStoreWithMiddleware = applyMiddleware(thunk, promise, logger)(createStore);
 
 export default createStoreWithMiddleware(reducer);
