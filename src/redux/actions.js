@@ -1,5 +1,6 @@
 'use strict';
 
+import crypto from 'crypto';
 import db from './db';
 
 export function setGreeting(greeting) {
@@ -58,6 +59,7 @@ export function upsertPerson(name) {
     throw err;
   });
 }
+
 function mapDocsFromPouch(records) {
   if (!!!records) {
     return {};
@@ -67,5 +69,5 @@ function mapDocsFromPouch(records) {
 }
 
 function generateId() {
-  return new Date().toString();
+  return crypto.randomBytes(16).toString('hex');
 }
