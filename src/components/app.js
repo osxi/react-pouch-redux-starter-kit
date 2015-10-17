@@ -18,8 +18,6 @@ const {
 
 const { ThemeManager } = Styles;
 
-const { createFragment } = React.addons;
-
 injectTapEventPlugin();
 
 let App = React.createClass({
