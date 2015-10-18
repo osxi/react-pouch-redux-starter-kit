@@ -19,7 +19,7 @@ export default React.createClass({
 
     return (
       <Tabs value={pathname}>
-        <Tab label="Index" route="/" value="/root"
+        <Tab label="Index" route="/" value="/"
              onActive={this._handleTabActive} />
         <Tab label="About" route="/about" value="/about"
              onActive={this._handleTabActive} />
