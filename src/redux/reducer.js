@@ -11,6 +11,11 @@ export default (state=initialState, action) => {
       ...state,
       greeting: action.greeting
     };
+  case 'TOGGLE_PEOPLE_MODAL':
+    return {
+      ...state,
+      peopleModalOpen: !!!state.peopleModalOpen
+    };
   case 'FETCH_PEOPLE':
     return {
       ...state,

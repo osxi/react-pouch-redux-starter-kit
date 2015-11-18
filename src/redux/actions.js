@@ -10,6 +10,12 @@ export function setGreeting(greeting) {
   };
 };
 
+export function togglePeopleModal() {
+  return {
+    type: 'TOGGLE_PEOPLE_MODAL'
+  };
+};
+
 export function fetchPeople() {
   return db.allDocs({
     include_docs: true

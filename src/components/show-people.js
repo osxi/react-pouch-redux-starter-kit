@@ -1,20 +1,27 @@
 'use strict';
 
+import store from '../redux/store';
 import MUI from 'material-ui';
 import React from 'react';
+import { connect } from 'react-redux';
+import { togglePeopleModal } from '../redux/actions';
 
 const {
   Dialog,
   RaisedButton
 } = MUI;
 
-export default React.createClass({
+let ShowPeople = React.createClass({
+  _hidePeople() {
+    store.dispatch(togglePeopleModal());
+  },
+
   _showPeople() {
-    this.refs.peopleDialog.show();
+    store.dispatch(togglePeopleModal());
   },
 
   render() {
-    let { people } = this.props;
+    let { people, peopleModalOpen } = this.props;
 
     return (
       <span>
@@ -22,10 +29,19 @@ export default React.createClass({
                       onClick={this._showPeople} />
 
         <Dialog title="People in the Redux Store" ref="peopleDialog"
-                autoDetectWindowHeight={true} autoScrollBodyContent={true}>
+                autoDetectWindowHeight={true} autoScrollBodyContent={true}
+                open={peopleModalOpen} onRequestClose={this._hidePeople}>
           <div><pre>{JSON.stringify(people, null, 2)}</pre></div>
         </Dialog>
       </span>
     );
   }
 });
+
+export default connect(mapStateToProps)(ShowPeople);
+
+function mapStateToProps(state) {
+  return {
+    peopleModalOpen: state.peopleModalOpen
+  };
+};

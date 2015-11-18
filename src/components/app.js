@@ -65,4 +65,4 @@ function mapStateToProps(state) {
     greeting: state.greeting,
     people: state.people
   };
-}
+};
