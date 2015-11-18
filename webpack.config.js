@@ -1,3 +1,5 @@
+'use strict';
+
 var path = require('path');
 var webpack = require('webpack');
 
@@ -19,7 +21,7 @@ module.exports = {
       },
       {
         test: path.join(__dirname, 'src'),
-        loaders: ['react-hot', 'babel-loader']
+        loaders: ['react-hot', 'babel']
       }
     ]
   }
