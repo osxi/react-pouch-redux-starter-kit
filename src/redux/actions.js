@@ -36,7 +36,7 @@ export function deletePerson() {
 }
 
 export function deletePeople() {
-  db.allDocs({
+  return db.allDocs({
     include_docs: true
   }).then(records => {
     return Promise.all(
@@ -53,7 +53,6 @@ export function deletePeople() {
 }
 
 export function upsertPerson(name) {
-  console.log('upsertPerson: ', name);
   return db.put({
     _id: generateId(),
     name: name
