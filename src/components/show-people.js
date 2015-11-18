@@ -12,11 +12,7 @@ const {
 } = MUI;
 
 let ShowPeople = React.createClass({
-  _hidePeople() {
-    store.dispatch(togglePeopleModal());
-  },
-
-  _showPeople() {
+  _togglePeopleModal() {
     store.dispatch(togglePeopleModal());
   },
 
@@ -26,11 +22,11 @@ let ShowPeople = React.createClass({
     return (
       <span>
         <RaisedButton label="Show People" primary={true}
-                      onClick={this._showPeople} />
+                      onClick={this._togglePeopleModal} />
 
         <Dialog title="People in the Redux Store" ref="peopleDialog"
                 autoDetectWindowHeight={true} autoScrollBodyContent={true}
-                open={peopleModalOpen} onRequestClose={this._hidePeople}>
+                open={peopleModalOpen} onRequestClose={this._togglePeopleModal}>
           <div><pre>{JSON.stringify(people, null, 2)}</pre></div>
         </Dialog>
       </span>
