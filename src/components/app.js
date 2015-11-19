@@ -21,6 +21,14 @@ const { ThemeManager } = Styles;
 injectTapEventPlugin();
 
 let App = React.createClass({
+  propTypes: {
+    children: React.PropTypes.object,
+    greeting: React.PropTypes.string,
+    people: React.PropTypes.array,
+    history: React.PropTypes.object,
+    location: React.PropTypes.object
+  },
+
   childContextTypes: {
     muiTheme: React.PropTypes.object
   },
@@ -65,4 +73,4 @@ function mapStateToProps(state) {
     greeting: state.greeting,
     people: state.people
   };
-};
+}

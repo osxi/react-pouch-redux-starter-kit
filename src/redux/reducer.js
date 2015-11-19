@@ -14,7 +14,7 @@ export default (state=initialState, action) => {
   case 'TOGGLE_PEOPLE_MODAL':
     return {
       ...state,
-      peopleModalOpen: !!!state.peopleModalOpen
+      peopleModalOpen: !state.peopleModalOpen
     };
   case 'FETCH_PEOPLE':
     return {
@@ -30,4 +30,4 @@ export default (state=initialState, action) => {
   default:
     return state;
   }
-}
+};

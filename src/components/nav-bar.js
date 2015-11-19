@@ -2,11 +2,15 @@
 
 import MUI from 'material-ui';
 import React from 'react';
-import { Link } from 'react-router';
 
 const { Tabs, Tab } = MUI;
 
 export default React.createClass({
+  propTypes: {
+    history: React.PropTypes.object,
+    pathname: React.PropTypes.string
+  },
+
   _handleTabActive(tab) {
     let { route } = tab.props;
     let { history } = this.props;

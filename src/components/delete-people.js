@@ -13,7 +13,7 @@ export default React.createClass({
   },
 
   _deletePeopleHandler() {
-    store.dispatch(deletePeople())
+    store.dispatch(deletePeople());
   },
 
   render() {

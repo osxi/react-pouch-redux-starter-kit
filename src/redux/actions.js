@@ -8,17 +8,17 @@ export function setGreeting(greeting) {
     type: 'SET_GREETING',
     greeting
   };
-};
+}
 
 export function togglePeopleModal() {
   return {
     type: 'TOGGLE_PEOPLE_MODAL'
   };
-};
+}
 
 export function fetchPeople() {
   return db.allDocs({
-    include_docs: true
+    include_docs: true // eslint-disable-line camelcase
   }).then(people => {
     return {
       type: 'FETCH_PEOPLE',
@@ -27,7 +27,7 @@ export function fetchPeople() {
   }).catch(err => {
     throw err;
   });
-};
+}
 
 export function deletePerson() {
   return {
@@ -37,7 +37,7 @@ export function deletePerson() {
 
 export function deletePeople() {
   return db.allDocs({
-    include_docs: true
+    include_docs: true // eslint-disable-line camelcase
   }).then(records => {
     return Promise.all(
       records.rows.map(row => row.doc)
@@ -56,7 +56,7 @@ export function upsertPerson(name) {
   return db.put({
     _id: generateId(),
     name: name
-  }).then(person => {
+  }).then(() => {
     return {
       type: 'UPSERT_PERSON'
     };
@@ -66,7 +66,7 @@ export function upsertPerson(name) {
 }
 
 function mapDocsFromPouch(records) {
-  if (!!!records) {
+  if (!records) {
     return {};
   }
 

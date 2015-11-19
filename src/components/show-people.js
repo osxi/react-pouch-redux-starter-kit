@@ -12,6 +12,14 @@ const {
 } = MUI;
 
 let ShowPeople = React.createClass({
+  propTypes: {
+    people: React.PropTypes.array,
+    peopleModalOpen: React.PropTypes.oneOfType([
+      React.PropTypes.func,
+      React.PropTypes.bool
+    ])
+  },
+
   _togglePeopleModal() {
     store.dispatch(togglePeopleModal());
   },
@@ -40,4 +48,4 @@ function mapStateToProps(state) {
   return {
     peopleModalOpen: state.peopleModalOpen
   };
-};
+}
