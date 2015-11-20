@@ -11,7 +11,7 @@ const {
 } = MUI;
 
 export default React.createClass({
-  _newPersonHandler() {
+  _submitHandler() {
     let { newPersonName } = this.refs;
 
     store.dispatch(
@@ -27,9 +27,10 @@ export default React.createClass({
         <h3>New Person</h3>
 
         <TextField hintText="Enter a full Name" fullWidth={true}
-                   floatingLabelText="Name" ref="newPersonName" />
+                   floatingLabelText="Name" ref="newPersonName"
+                   onEnterKeyDown={this._submitHandler} />
 
-        <RaisedButton label="Create" secondary={true} onClick={this._newPersonHandler} />
+        <RaisedButton label="Create" secondary={true} onClick={this._submitHandler} />
       </div>
     );
   }
