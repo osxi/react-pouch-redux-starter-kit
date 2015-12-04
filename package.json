@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --progress --colors --hot",
     "build": "NODE_ENV=production webpack -p --config webpack.production.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -35,6 +35,8 @@
     "eslint-loader": "^1.1.1",
     "eslint-plugin-react": "^3.9.0",
     "fbjs": "^0.4.0",
+    "history": "^1.13.1",
+    "jest-cli": "^0.8.0",
     "material-ui": "^0.13.3",
     "pouchdb": "^5.0.0",
     "react": "^0.14.0",
