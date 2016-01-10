@@ -1,7 +1,8 @@
 'use strict';
 
 let initialState = {
-  greeting: 'Greetings!'
+  greeting: 'Greetings!',
+  peopleModalOpen: false
 };
 
 export default (state=initialState, action) => {
