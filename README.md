@@ -1,5 +1,7 @@
 # react-pouch-redux-starter-kit [![devDependency Status](https://david-dm.org/osxi/react-pouch-redux-starter-kit/dev-status.svg)](https://david-dm.org/osxi/react-pouch-redux-starter-kit#info=devDependencies)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/osxi/react-pouch-redux-starter-kit.svg)](https://greenkeeper.io/)
+
 Quickly get started with React + PouchDB + Redux, along with React Router, Babel, and Material UI.
 
 ### Usage
